@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+<main></main>
+<script>
+	window.addEventListener("load", async () => {
+		document.title = (await (await fetch("package.json")).json()).version
+		document.getElementsByTagName("main")[0].innerText = `Hello world from v${document.title}`
+	})
+</script>
+</body>
+</html>
