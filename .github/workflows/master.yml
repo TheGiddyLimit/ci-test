@@ -1,0 +1,19 @@
+name: Build and Deploy
+
+on:
+   push:
+      tags:
+         - 'v**'
+
+jobs:
+   build-and-deploy:
+      runs-on: ubuntu-latest
+      steps:
+         -  uses: actions/checkout@master
+
+         # See: https://github.com/JamesIves/github-pages-deploy-action
+         -  name: Deploy
+            uses: JamesIves/github-pages-deploy-action@releases/v4
+            with:
+               branch: gh-pages
+               folder: .
